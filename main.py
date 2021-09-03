@@ -1,9 +1,15 @@
 from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import QApplication, QMainWindow
 import sys
+import random
+
+def randomChoice(options=["rock", "paper", "scissors"]):
+    return random.choice(options);
+
 
 def clicked(type):
-    print(type)
+    print(type, randomChoice())
+
 
 def window():
     app = QApplication(sys.argv)
