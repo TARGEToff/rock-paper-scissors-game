@@ -7,9 +7,11 @@ def randomChoice(options=["rock", "paper", "scissors"]):
     return random.choice(options);
 
 
-def clicked(type):
-    print(type, randomChoice())
+def clicked(userChoice, computerChoice):
+    print(userChoice, computerChoice)
 
+    if userChoice == computerChoice:
+        print("tie")
 
 def window():
     app = QApplication(sys.argv)
@@ -24,15 +26,15 @@ def window():
     rockBtn = QtWidgets.QPushButton(win)
     rockBtn.setText("Rock")
     rockBtn.move(85, 80)
-    rockBtn.clicked.connect(lambda: clicked("rock"))
+    rockBtn.clicked.connect(lambda: clicked("rock", randomChoice()))
     paperBtn = QtWidgets.QPushButton(win)
     paperBtn.setText("Paper")
     paperBtn.move(195, 80)
-    paperBtn.clicked.connect(lambda: clicked("paper"))
+    paperBtn.clicked.connect(lambda: clicked("paper", randomChoice()))
     scissorsBtn = QtWidgets.QPushButton(win)
     scissorsBtn.setText("Scissors")
     scissorsBtn.move(305, 80)
-    scissorsBtn.clicked.connect(lambda: clicked("scissors"))
+    scissorsBtn.clicked.connect(lambda: clicked("scissors", randomChoice()))
 
     win.show()
     sys.exit(app.exec_())
